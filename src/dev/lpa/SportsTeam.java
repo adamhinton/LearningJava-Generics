@@ -3,36 +3,7 @@ package dev.lpa;
 import java.util.ArrayList;
 import java.util.List;
 
-record BaseballPlayer(String name, String position){
-
-}
-
-public class Main {
-    public static void main(String[] args) {
-
-        SportsTeam phillies = new SportsTeam("Philadelphia Phillies");
-        SportsTeam astros = new SportsTeam("Houston Astros");
-
-//        scoreResult(phillies, 3, astros, 5);
-
-        var harper = new BaseballPlayer("B Harper", "Right Fielder");
-        var marsh = new BaseballPlayer("B Marsh", "Right Fielder");
-
-        phillies.addTeamMember(harper);
-        phillies.addTeamMember(marsh);
-
-        phillies.listTeamMembers();
-
-    }
-
-    public static void scoreResult (SportsTeam team1, int t1_score, SportsTeam team2, int t2_score){
-        String message = team1.setScore(t1_score, t2_score);
-        team2.setScore(t2_score, t1_score);
-        System.out.printf("%s %s %s %n", team1, message, team2);
-    }
-}
-
-class BaseballTeam{
+class SportsTeam {
 
     private String teamName;
     private List<BaseballPlayer> teamMembers = new ArrayList<>();
@@ -40,7 +11,7 @@ class BaseballTeam{
     private int totalLosses = 0;
     private int totalTies = 0;
 
-    public BaseballTeam(String teamName) {
+    public SportsTeam(String teamName) {
         this.teamName = teamName;
     }
 
