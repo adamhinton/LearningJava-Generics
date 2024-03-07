@@ -15,9 +15,10 @@ class SportsTeam <T> {
         this.teamName = teamName;
     }
 
-    public void addTeamMember(T player){
-        if (!teamMembers.contains(player)) {
-            teamMembers.add(player);
+    public void addTeamMember
+(T t){
+        if (!teamMembers.contains(t)) {
+            teamMembers.add(t);
         }
 
     }

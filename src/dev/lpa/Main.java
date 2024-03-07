@@ -6,10 +6,9 @@ import java.util.List;
 interface Player{}
 
 
-record BaseballPlayer(String name, String position) implements Player{
-record FootballPlayer(String name, String position) implements Player{
+record BaseballPlayer(String name, String position) implements Player{}
 
-}
+record FootballPlayer(String name, String position) implements Player{}
 
 public class Main {
     public static void main(String[] args) {
@@ -27,14 +26,34 @@ public class Main {
 //        phillies.listTeamMembers();
 
 
-        SportsTeam afc = new SportsTeam("Adelaide Crows");
-        var tex = new FootballPlayer("Tex walker", "center whatever");
-        afc.addTeamMember(tex);
-        afc.listTeamMembers();
+//        SportsTeam afc = new SportsTeam("Adelaide Crows");
+//        var tex = new FootballPlayer("Tex walker", "center whatever");
+//        afc.addTeamMember(tex);
+//        afc.listTeamMembers();
+//
+//
+//        var guthrie = new BaseballPlayer("Gurthire", "Center field");
+//        afc.addTeamMember(guthrie);
+
+//
+//        SportsTeam<BaseballPlayer> phillies = new SportsTeam<>("Philadelphia Phillies");
+//        SportsTeam<BaseballPlayer> astros = new SportsTeam<>("Houston Astros");
+//        scoreResult(phillies, 3, astros, 5);
 
 
-        var guthrie = new BaseballPlayer("Gurthire", "Center field");
-        afc.addTeamMember(guthrie);
+//        SportsTeam<FootballPlayer> afc = new Team<>("Adelaide Crows");
+//        var tex = new FootballPlayer("Text Walker", "Centre blah");
+
+        SportsTeam<String> adelaide = new SportsTeam<>("Adelaide Storm");
+        adelaide.addTeamMember("N Roberts");
+        adelaide.listTeamMembers();
+
+        var canberra = new SportsTeam<String>("Canberra Heat");
+        canberra.addTeamMember("B Black");
+        canberra.listTeamMembers();
+
+        scoreResult(canberra, 0, adelaide, 1);
+
 
     }
 
@@ -45,7 +64,7 @@ public class Main {
     }
 }
 
-class BaseballTeam{
+class BaseballTeam {
 
     private String teamName;
     private List<BaseballPlayer> teamMembers = new ArrayList<>();
@@ -57,7 +76,7 @@ class BaseballTeam{
         this.teamName = teamName;
     }
 
-    public void addTeamMember(BaseballPlayer player){
+    public void addTeamMember(BaseballPlayer player) {
         if (!teamMembers.contains(player)) {
             teamMembers.add(player);
         }
@@ -73,17 +92,15 @@ class BaseballTeam{
         return (totalLosses * 2) + (totalTies + 1);
     }
 
-    public String setScore(int ourScore, int theirScore){
+    public String setScore(int ourScore, int theirScore) {
         String message = "lost to";
-        if (ourScore > theirScore){
+        if (ourScore > theirScore) {
             totalWins++;
             message = "beat";
-        }
-        else if (ourScore == theirScore){
+        } else if (ourScore == theirScore) {
             totalTies++;
             message = "tied";
-        }
-        else{
+        } else {
             totalLosses++;
         }
         return message;
