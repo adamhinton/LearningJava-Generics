@@ -3,7 +3,9 @@ package dev.lpa;
 import java.util.ArrayList;
 import java.util.List;
 
-interface Player{}
+interface Player{
+    String name();
+}
 
 
 record BaseballPlayer(String name, String position) implements Player{}
@@ -44,15 +46,15 @@ public class Main {
 //        SportsTeam<FootballPlayer> afc = new Team<>("Adelaide Crows");
 //        var tex = new FootballPlayer("Text Walker", "Centre blah");
 
-        SportsTeam<String> adelaide = new SportsTeam<>("Adelaide Storm");
-        adelaide.addTeamMember("N Roberts");
-        adelaide.listTeamMembers();
+//        SportsTeam<String> adelaide = new SportsTeam<>("Adelaide Storm");
+//        adelaide.addTeamMember("N Roberts");
+//        adelaide.listTeamMembers();
+//
+//        var canberra = new SportsTeam<String>("Canberra Heat");
+//        canberra.addTeamMember("B Black");
+//        canberra.listTeamMembers();
 
-        var canberra = new SportsTeam<String>("Canberra Heat");
-        canberra.addTeamMember("B Black");
-        canberra.listTeamMembers();
-
-        scoreResult(canberra, 0, adelaide, 1);
+//        scoreResult(canberra, 0, adelaide, 1);
 
 
     }
