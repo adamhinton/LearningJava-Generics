@@ -3,7 +3,7 @@ package dev.lpa;
 import java.util.ArrayList;
 import java.util.List;
 
-class SportsTeam <T> {
+class SportsTeam <T extends Player> {
 
     private String teamName;
     private List<T> teamMembers = new ArrayList<>();
