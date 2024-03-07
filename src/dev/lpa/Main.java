@@ -12,6 +12,8 @@ record BaseballPlayer(String name, String position) implements Player{}
 
 record FootballPlayer(String name, String position) implements Player{}
 
+record VBallPlayer(String name, String position) implements Player{}
+
 public class Main {
     public static void main(String[] args) {
 
@@ -46,15 +48,15 @@ public class Main {
 //        SportsTeam<FootballPlayer> afc = new Team<>("Adelaide Crows");
 //        var tex = new FootballPlayer("Text Walker", "Centre blah");
 
-//        SportsTeam<String> adelaide = new SportsTeam<>("Adelaide Storm");
-//        adelaide.addTeamMember("N Roberts");
-//        adelaide.listTeamMembers();
-//
-//        var canberra = new SportsTeam<String>("Canberra Heat");
-//        canberra.addTeamMember("B Black");
-//        canberra.listTeamMembers();
+        SportsTeam<VBallPlayer> adelaide = new SportsTeam<>("Adelaide Storm");
+        adelaide.addTeamMember(new VBallPlayer("N Roberts", "setter"));
+        adelaide.listTeamMembers();
 
-//        scoreResult(canberra, 0, adelaide, 1);
+        var canberra = new SportsTeam<VBallPlayer>("Canberra Heat");
+        canberra.addTeamMember(new VBallPlayer("B Black", "Opposite"));
+        canberra.listTeamMembers();
+
+        scoreResult(canberra, 0, adelaide, 1);
 
 
     }

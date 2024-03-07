@@ -25,7 +25,9 @@ class SportsTeam <T extends Player> {
 
     public void listTeamMembers() {
         System.out.println(teamName + "Roster:");
-        System.out.println(teamMembers);
+        for(T t: teamMembers){
+            System.out.println(t);
+        }
     }
 
     public int ranking() {
