@@ -17,6 +17,8 @@ record VBallPlayer(String name, String position) implements Player{}
 public class Main {
     public static void main(String[] args) {
 
+        var philly = new Affiliation("city", "Philadelphia", "USA");
+
 //        SportsTeam phillies = new SportsTeam("Philadelphia Phillies");
 //        SportsTeam astros = new SportsTeam("Houston Astros");
 //        scoreResult(phillies, 3, astros, 5);
@@ -40,19 +42,21 @@ public class Main {
 //        afc.addTeamMember(guthrie);
 
 //
-//        SportsTeam<BaseballPlayer> phillies = new SportsTeam<>("Philadelphia Phillies");
-//        SportsTeam<BaseballPlayer> astros = new SportsTeam<>("Houston Astros");
-//        scoreResult(phillies, 3, astros, 5);
+        SportsTeam<BaseballPlayer, Affiliation> phillies = new SportsTeam("Philadelphia Phillies", philly);
+        SportsTeam<BaseballPlayer, Affiliation> astros = new SportsTeam<>("Houston Astros");
+        scoreResult(phillies, 3, astros, 5);
+        phillies.listTeamMembers();
 
 
-//        SportsTeam<FootballPlayer> afc = new Team<>("Adelaide Crows");
-//        var tex = new FootballPlayer("Text Walker", "Centre blah");
+        SportsTeam<FootballPlayer, Affiliation> afc = new SportsTeam<>("Adelaide Crows",
+                new Affiliation("City of Adelaide", "South Australia", "AUS"));
+        var tex = new FootballPlayer("Text Walker", "Centre blah");
 
-        SportsTeam<VBallPlayer> adelaide = new SportsTeam<>("Adelaide Storm");
+        SportsTeam<VBallPlayer, Affiliation> adelaide = new SportsTeam<>("Adelaide Storm");
         adelaide.addTeamMember(new VBallPlayer("N Roberts", "setter"));
         adelaide.listTeamMembers();
 
-        var canberra = new SportsTeam<VBallPlayer>("Canberra Heat");
+        var canberra = new SportsTeam<VBallPlayer, Affiliation>("Canberra Heat");
         canberra.addTeamMember(new VBallPlayer("B Black", "Opposite"));
         canberra.listTeamMembers();
 
